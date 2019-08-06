@@ -21,24 +21,25 @@ app.use(express.static(publicDirectoryPath));
 
 //render using handlebars
 
+const name = 'Yvonne Nkr';
 app.get('/', (req, res) => {
   res.render('index', {
     title: 'Weather',
-    name: 'Ashley Gemma'
+    name
   });
 });
 
 app.get('/about', (req, res) => {
   res.render('about', {
     title: 'About Me',
-    name: 'Ashley Gemma'
+    name
   });
 });
 
 app.get('/help', (req, res) => {
   res.render('help', {
     title: 'Help',
-    name: 'Ashley Gemma',
+    name,
     helpText: 'This is some helpfull text..'
   });
 });
@@ -83,7 +84,7 @@ app.get('/products', (req, res) => {
 app.get('/help/*', (req, res) => {
   res.render('404', {
     title: '404',
-    name: 'Ashley Gemma',
+    name,
     errorMessage: 'Help article not found!'
   });
 });
@@ -91,7 +92,7 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
   res.render('404', {
     title: '404',
-    name: 'Ashley Gemma',
+    name,
     errorMessage: 'Page not found!'
   });
 });
